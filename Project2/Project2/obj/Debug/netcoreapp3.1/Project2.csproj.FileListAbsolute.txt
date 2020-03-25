@@ -1,0 +1,11 @@
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.exe
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.deps.json
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.runtimeconfig.json
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.runtimeconfig.dev.json
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.dll
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\bin\Debug\netcoreapp3.1\Project2.pdb
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\obj\Debug\netcoreapp3.1\Project2.csprojAssemblyReference.cache
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\obj\Debug\netcoreapp3.1\Project2.AssemblyInfoInputs.cache
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\obj\Debug\netcoreapp3.1\Project2.AssemblyInfo.cs
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\obj\Debug\netcoreapp3.1\Project2.dll
+C:\Users\Fedir_\Academy\APBD\Project2\Project2\obj\Debug\netcoreapp3.1\Project2.pdb
