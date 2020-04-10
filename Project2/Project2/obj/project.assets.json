@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fedir_\\Academy\\APBD\\Project2\\Project2\\Project2.csproj",
+      "projectUniqueName": "C:\\Users\\Fedir_\\Source\\Repos\\s19428\\tut2\\Project2\\Project2\\Project2.csproj",
       "projectName": "Project2",
-      "projectPath": "C:\\Users\\Fedir_\\Academy\\APBD\\Project2\\Project2\\Project2.csproj",
+      "projectPath": "C:\\Users\\Fedir_\\Source\\Repos\\s19428\\tut2\\Project2\\Project2\\Project2.csproj",
       "packagesPath": "C:\\Users\\Fedir_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fedir_\\Academy\\APBD\\Project2\\Project2\\obj\\",
+      "outputPath": "C:\\Users\\Fedir_\\Source\\Repos\\s19428\\tut2\\Project2\\Project2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

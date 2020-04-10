@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Project2
 {
-    public class CsvToXml
+    public class CsvToXml : Converter
     {
         string filePath_csv;
         string filePath_xml;
@@ -18,7 +18,7 @@ namespace Project2
         /// </summary>
         /// <param path of the file that is to be converted to xml="fielPath_csv"></param>
         /// <param destination filepath="filePath_xml"></param>
-        public CsvToXml(string filePath_csv, string filePath_xml) 
+        public CsvToXml(string filePath_csv, string filePath_xml) : base(filePath_csv)
         {
             this.filePath_csv = filePath_csv;
             this.filePath_xml = filePath_xml;
@@ -116,26 +116,26 @@ namespace Project2
             [XmlAttribute]
             public string name;
             [XmlAttribute]
-            public  string surname;
+            public string surname;
             [XmlAttribute]
-            public  string studies;
+            public string studies;
             [XmlAttribute]
-            public  string studiesType;
+            public string studiesType;
             [XmlAttribute]
-            public  string number;
+            public string number;
             [XmlAttribute]
-            public  string dbo;
+            public string dbo;
             [XmlAttribute]
-            public  string time;
+            public string time;
             [XmlAttribute]
-            public  string email;
+            public string email;
             [XmlAttribute]
-            public  string n1;
+            public string n1;
             [XmlAttribute]
             public string n2;
 
             public Student(
-                string name, 
+                string name,
                 string surname,
                 string studies,
                 string studiesType,
