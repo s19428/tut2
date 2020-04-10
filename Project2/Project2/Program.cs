@@ -26,6 +26,8 @@ namespace Project2
                 CsvToXml converter = new CsvToXml(data, result);
                 Console.WriteLine(converter.ConvertToXml());
             }
+
+            Console.ReadLine();
         }
     }
 }

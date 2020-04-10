@@ -27,6 +27,9 @@ namespace Project2
 #nullable enable
         public string? ConvertToXml()
         {
+            if (!noErrors)
+                return null;
+
             string output = "";
 
             int counter = 0;
@@ -61,6 +64,11 @@ namespace Project2
 
                     {
                         string[] row = lines[0].Split(",");
+                        if (row.Length != 6)
+                        {
+                            writeToLogFile("Wrong student input format");
+                            return null;
+                        }
                         name = row[0];
                         surname = row[1];
                         studies = row[2];
@@ -70,6 +78,11 @@ namespace Project2
                     }
                     {
                         string[] row = lines[1].Split(",");
+                        if (row.Length != 4)
+                        {
+                            writeToLogFile("Wrong student input format");
+                            return null;
+                        }
                         time = row[0];
                         email = row[1];
                         n1 = row[2];
@@ -96,91 +109,16 @@ namespace Project2
             Console.WriteLine(students.ElementAt(0).ToString());
 
             XmlSerializer serializer =
-                new XmlSerializer(typeof(Student));
+                new XmlSerializer(typeof(University));
             TextWriter writer = new StreamWriter(filePath_xml);
 
-            Student s = students.ElementAt(0);
-            serializer.Serialize(writer, s);
+            University university = new University(students);
+            //Student s = students.ElementAt(0);
+            serializer.Serialize(writer, university);
             writer.Close();
 
             return output;
         }
 #nullable disable
-
-        [XmlRoot]
-        public class Student
-        {
-            //Paweł,Nowak1,Informatyka dzienne, Dzienne,459,2000-02-12
-            //00:00:00.000, nowak@pjwstk.edu.pl,Alina,Adam
-
-            [XmlAttribute]
-            public string name;
-            [XmlAttribute]
-            public string surname;
-            [XmlAttribute]
-            public string studies;
-            [XmlAttribute]
-            public string studiesType;
-            [XmlAttribute]
-            public string number;
-            [XmlAttribute]
-            public string dbo;
-            [XmlAttribute]
-            public string time;
-            [XmlAttribute]
-            public string email;
-            [XmlAttribute]
-            public string n1;
-            [XmlAttribute]
-            public string n2;
-
-            public Student(
-                string name,
-                string surname,
-                string studies,
-                string studiesType,
-                string number,
-                string dbo,
-                string time,
-                string email,
-                string n1,
-                string n2)
-            {
-                this.name = name;
-                this.surname = surname;
-                this.studies = studies;
-                this.studiesType = studiesType;
-                this.number = number;
-                this.dbo = dbo;
-                this.time = time;
-                this.email = email;
-                this.n1 = n1;
-                this.n2 = n2;
-            }
-
-            public Student() { }
-
-            public string ToXml()
-            {
-                XmlSerializer xsSubmit = new XmlSerializer(typeof(Student));
-                string xml = "";
-
-                using (var sww = new StringWriter())
-                {
-                    using (XmlWriter writer = XmlWriter.Create(sww))
-                    {
-                        xsSubmit.Serialize(writer, this);
-                        xml = sww.ToString();
-                    }
-                }
-
-                return xml;
-            }
-
-            public string ToString()
-            {
-                return "Student: " + name + surname + "...";
-            }
-        }
     }
 }

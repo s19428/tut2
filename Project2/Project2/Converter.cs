@@ -7,10 +7,11 @@ namespace Project2
 {
     public class Converter
     {
+        public bool noErrors = true;
         public Converter(string filePath_csv)
         {
             clearLog();
-            chechPath(filePath_csv);
+            noErrors = chechPath(filePath_csv);
         }
 
         private const string logFile = @"log.txt";
@@ -22,36 +23,24 @@ namespace Project2
                 writeToLogFile("File does not exist: " + path);
                 result = false;
             }
-            if (!IsValidPath(path, true))
+            else
             {
-                writeToLogFile("Path is incorrect: " + path);
-                result = false;
+                if (!IsValidPath(path))
+                {
+                    writeToLogFile("Path is incorrect: " + path);
+                    result = false;
+                }
             }
 
             return result;
         }
-        private bool IsValidPath(string path, bool allowRelativePaths = false)
+        private bool IsValidPath(string path)
         {
-            bool isValid = true;
-            try
-            {
-                string fullPath = Path.GetFullPath(path);
-                if (allowRelativePaths)
-                {
-                    isValid = Path.IsPathRooted(path);
-                }
-                else
-                {
-                    string root = Path.GetPathRoot(path);
-                    isValid = string.IsNullOrEmpty(root.Trim(new char[] { '\\', '/' })) == false;
-                }
-            }
-            catch (Exception ex)
-            {
-                isValid = false;
-            }
+            FileAttributes attr = File.GetAttributes(path);
+            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                return false; // Its a directory
 
-            return isValid;
+            return true;
         }
 
         public void writeToLogFile(string text)
