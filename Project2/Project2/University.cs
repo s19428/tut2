@@ -9,6 +9,11 @@ namespace Project2
     [XmlRoot]
     public class University
     {
+        [XmlAttribute]
+        public DateTime createdAt = DateTime.Now.Date;
+        [XmlAttribute]
+        public string author = "Name Surname";
+
         [XmlArray(ElementName = "students")]
         public List<Student> students;
         [XmlArray(ElementName = "activeStudies")]

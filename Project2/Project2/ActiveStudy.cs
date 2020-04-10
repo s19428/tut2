@@ -9,10 +9,10 @@ namespace Project2
     [XmlRoot]
     public class ActiveStudy
     {
-        [XmlElement]
-        public string name;
-        [XmlElement]
+        [XmlAttribute]
         public int numberOfStudents;
+        [XmlAttribute]
+        public string name;
 
         public ActiveStudy(string name, int numberOfStudents)
         {

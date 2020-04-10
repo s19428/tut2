@@ -14,15 +14,15 @@ namespace Project2
         //00:00:00.000, nowak@pjwstk.edu.pl,Alina,Adam
 
         [XmlAttribute]
-        public string indexNumber = "s00000";
+        public string indexNumber = "s";
 
         [XmlElement]
         public string name;
         [XmlElement]
         public string surname;
 
-        [XmlElement]
-        public string number;
+        //[XmlElement]
+        //public string number;
         [XmlElement]
         public string dbo;
         [XmlElement]
@@ -54,7 +54,7 @@ namespace Project2
             //this.studies = studies;
             //this.studiesType = studiesType;
             this.studies = new Studies(studies, studiesType);
-            this.number = number;
+            this.indexNumber += number;
             this.dbo = dbo;
             this.time = time;
             this.email = email;
