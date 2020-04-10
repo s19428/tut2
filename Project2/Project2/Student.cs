@@ -29,9 +29,9 @@ namespace Project2
         public string time;
         [XmlElement]
         public string email;
-        [XmlElement]
+        [XmlElement(ElementName = "mothersName")]
         public string n1;
-        [XmlElement]
+        [XmlElement(ElementName = "fathersName")]
         public string n2;
 
         [XmlElement]
