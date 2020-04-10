@@ -11,10 +11,12 @@ namespace Project2
     {
         [XmlArray(ElementName = "students")]
         public List<Student> students;
-
-        public University(List<Student> students) 
+        [XmlArray(ElementName = "activeStudies")]
+        public List<ActiveStudy> activeStudies;
+        public University(List<Student> students, List<ActiveStudy> activeStudies) 
         {
             this.students = students;
+            this.activeStudies = activeStudies;
         }
         public University() { }
     }

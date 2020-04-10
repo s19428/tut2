@@ -38,6 +38,7 @@ namespace Project2
             string line;
 
             List<Student> students = new List<Student>();
+            List<ActiveStudy> activeStudies = new List<ActiveStudy>();
 
             System.IO.StreamReader file =
                 new System.IO.StreamReader(filePath_csv);
@@ -72,6 +73,19 @@ namespace Project2
                         name = row[0];
                         surname = row[1];
                         studies = row[2];
+                        ActiveStudy aStudy = new ActiveStudy(studies);
+                        if (activeStudies.Contains(aStudy))
+                        {
+                            foreach (ActiveStudy a in activeStudies)
+                                if (aStudy.Equals(a))
+                                    a.numberOfStudents++;
+                        }
+                        else
+                        {
+                            activeStudies.Add(new ActiveStudy(studies, 1));
+                        }
+
+
                         studiesType = row[3];
                         number = row[4];
                         dbo = row[5];
@@ -106,13 +120,14 @@ namespace Project2
 
             file.Close();
 
-            Console.WriteLine(students.ElementAt(0).ToString());
+            foreach(Student s in students)
+                Console.WriteLine(s.ToString());
 
             XmlSerializer serializer =
                 new XmlSerializer(typeof(University));
             TextWriter writer = new StreamWriter(filePath_xml);
 
-            University university = new University(students);
+            University university = new University(students, activeStudies);
             //Student s = students.ElementAt(0);
             serializer.Serialize(writer, university);
             writer.Close();
